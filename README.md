@@ -10,7 +10,7 @@ cd ships_exe
   
 To run unit tests:  
 cd ../test  
-./runItemTest  
+./runItemTests  
   
 You can also run tests for different classes from there.
 
