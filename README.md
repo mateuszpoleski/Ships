@@ -2,7 +2,7 @@ Small project to play around with GTest and CMake.
   
 To run project execute:  
 git clone https://github.com/mateuszpoleski/Ships.git  
-mkdir build && cd build  
+cd Ships && mkdir build && cd build  
 cmake ..  
 make  
 cd ships_exe  
