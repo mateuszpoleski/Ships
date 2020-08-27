@@ -16,7 +16,7 @@ struct testShip : public ::testing::Test
         bool withToxins = true;
         bool withExplosives = true;
 
-        Item item(100, not withToxins, withExplosives);
+        Item item("testName", 100, not withToxins, not withExplosives);
         std::unique_ptr<Container> bigContainer = std::make_unique<BigContainer>(not withToxins, withExplosives);
         std::unique_ptr<Container> smallContainer = std::make_unique<SmallContainer>(withToxins, not withExplosives);
 
@@ -53,18 +53,11 @@ TEST_F(testShip, addNewContainer)
 
 TEST_F(testShip, deloadAfterAddingNewContainer)
 {
-    Item item(100, true, true);
+    Item item("testName", 100, true, true);
     std::unique_ptr<Container> bigContainer = std::make_unique<BigContainer>(true, true);
 
     bigContainer->addItem(item);
     ship.addContainer(std::move(bigContainer));
 
     ASSERT_EQ(300, ship.deload());
-}
-
-int main(int argc, char **argv)
-{
-    testing::InitGoogleTest(&argc, argv);
-
-    return RUN_ALL_TESTS();
 }
